@@ -35,7 +35,48 @@
 .image-tiles figure{display:block!important;visibility:visible!important;opacity:1!important;min-height:140px!important;}
 .image-tiles img{display:block!important;visibility:visible!important;opacity:1!important;width:100%!important;height:100px!important;object-fit:cover!important;background:#dceaf4!important;}
 @media(max-width:600px){.image-tiles img{height:100px!important}.country-gallery img{height:100px!important}}
-</style></head><body>
+</style>
+<style id="travora-captcha-style">
+#travoraCaptchaGate{
+  position:fixed;inset:0;z-index:999999;
+  display:flex;align-items:center;justify-content:center;
+  padding:24px;background:rgba(8,25,45,.96);
+}
+#travoraCaptchaBox{
+  width:min(92vw,430px);background:#fff;border-radius:20px;
+  padding:28px 22px;text-align:center;box-shadow:0 18px 60px rgba(0,0,0,.35);
+}
+#travoraCaptchaBox h2{margin:0 0 8px;color:#0756a6;font-size:25px}
+#travoraCaptchaBox p{margin:0 0 20px;color:#526273;line-height:1.6}
+#travoraCaptchaWidget{display:flex;justify-content:center;min-height:78px}
+#travoraCaptchaStatus{margin-top:14px;font-size:13px;color:#667}
+body.travora-captcha-locked{overflow:hidden}
+body.travora-captcha-verified #travoraCaptchaGate{display:none}
+</style>
+<script>
+function travoraCaptchaPassed(){
+  document.body.classList.remove('travora-captcha-locked');
+  document.body.classList.add('travora-captcha-verified');
+  var s=document.getElementById('travoraCaptchaStatus');
+  if(s) s.textContent='ভেরিফিকেশন সফল। ওয়েবসাইটে প্রবেশ করা হচ্ছে…';
+}
+</script>
+<script src="https://www.google.com/recaptcha/enterprise.js" async defer></script>
+</head><body>
+<div id="travoraCaptchaGate" aria-label="Security verification">
+  <div id="travoraCaptchaBox">
+    <h2>Travora International BD</h2>
+    <p>ওয়েবসাইটে প্রবেশ করতে আগে নিরাপত্তা যাচাই সম্পন্ন করুন।</p>
+    <div id="travoraCaptchaWidget">
+      <div class="g-recaptcha"
+           data-sitekey="6Ld6HM4tAAAAAM5XxwmV-QUPOcK-Phpokwg4stGD"
+           data-callback="travoraCaptchaPassed"></div>
+    </div>
+    <div id="travoraCaptchaStatus">“I'm not a robot” যাচাই করুন।</div>
+  </div>
+</div>
+<script>document.body.classList.add('travora-captcha-locked');</script>
+
 <header><div class="logo">✈ Travora International <b>BD</b></div><nav><a href="#countries">Countries</a><a href="#hajj">Hajj / Umrah</a><a href="#booking">Booking</a><a href="#contact">Contact</a></nav></header>
 <section class="hero"><h1>আপনার স্বপ্নের ভ্রমণ শুরু করুন</h1><p>ভিসা প্রসেসিং • এয়ার টিকেট • হোটেল • ট্যুর • হজ্জ/উমরাহ</p><a class="btn" href="#countries">৩৫টি দেশ দেখুন</a></section>
 <section class="section"><div class="title"><h2>আমাদের সেবা</h2><p>ভ্রমণের প্রয়োজনীয় সব সেবা এক জায়গায়</p></div><div class="services">
